@@ -1,0 +1,11 @@
+<h1>Movies of the list <%= @list.name%></h1>
+
+<div>
+  <% @bookmarks.where(list_id: @list.id).each do |bookmark| %>
+    <li>Title: <%= @movies.find(bookmark.movie_id).title %>
+    overview: <%= @movies.find(bookmark.movie_id).overview %>
+    poster_url: <%= @movies.find(bookmark.movie_id).poster_url %>
+    rating: <%= @movies.find(bookmark.movie_id).rating %></li>
+  <% end %>
+</div>
+<%= link_to "Add a movie", new_list_bookmark_path(@list.id) %>
